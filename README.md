@@ -8,7 +8,7 @@ Renzo Tenazoa | 201810251|
 ## Introduccion y Objetivos del proyecto
 El proyecto en cuestión busca devolver al usuario los rostros más similares al rostro que este cargue en la web.
 Para ello, se busca utilizar un estructura multidimensional que indexe los vectores característicos de miles de rostros a fin de realizar una búsqueda eficiente.
-La estructura multidimensional a la que nos referimos es un rtree, y los rostros se obtienen de la base de datos [lfw](http://vis-www.cs.umass.edu/lfw/). Asimismo, los vectores característicos que se insertan en el rtree nacen de la librería [face recognition] (https://github.com/ageitgey/face_recognition) Cabe destacar que este vector lo consiguen mediante el uso de una red neuronal entrenada para identificar las caracteristicas principales de un rostro.
+La estructura multidimensional a la que nos referimos es un rtree, y los rostros se obtienen de la base de datos [lfw](http://vis-www.cs.umass.edu/lfw/). Asimismo, los vectores característicos que se insertan en el rtree nacen de la librería [face recognition](https://github.com/ageitgey/face_recognition) Cabe destacar que este vector lo consiguen mediante el uso de una red neuronal entrenada para identificar las caracteristicas principales de un rostro.
 
 ## Obteniendo la data
 Lo primero que realizamos en este proyecto fue obtener todos los vectores caracteristicos de las más de 13000 fotos de la base de datos y almacenarlos en un excel que nos permita reutilizar estos vectores. Aparte de guardar los valores, guardamos también la dirección de la ruta a la foto que corresponde al vector. Esto es debido a que por cada rostro hay una carpeta y en cada carpeta pueden haber varias tomas del mismo rostro por lo que es útil guardar este dato también.
