@@ -21,8 +21,10 @@ def test():
     
     print("Rtree: ",times_rtree,"Sequential: ", times_sequential)
 
-    plt.plot(sizes, times_rtree, legend='KNN RTree')
-    plt.plot(sizes, times_sequential, legend='KNN Secuencial')
+    plt.plot(sizes, times_rtree, label='KNN RTree')
+    plt.plot(sizes, times_sequential, label='KNN Secuencial')
+    plt.xlabel("Number of images")
+    plt.ylabel("Seconds")
     plt.legend()
     plt.savefig('img')
 
