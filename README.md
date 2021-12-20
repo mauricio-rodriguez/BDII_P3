@@ -136,3 +136,7 @@ KNN_sequential | KNN_rtree | Tamaño |
 0.5368270874023438| 0.27453184127807617| 3200
 0.7456254959106445 | 0.3316769599914551| 6400
 1.1445732116699219 | 0.4600968360900879| 12800
+
+Dados los test, obtuvimos el siguiente grafico comparativo del tiempo de ejecucion de cada búsqueda
+
+![alt text](https://github.com/mauricio-rodriguez/BDII_P3/blob/main/test.png)
