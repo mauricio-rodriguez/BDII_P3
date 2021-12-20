@@ -122,5 +122,17 @@ Utilizamos distintos tamaños para realizar pruebas posteriores, pero principalm
       print("rtree: ",result)
       return result
 ```
-  
 
+## Tests
+Realizamos tests para ambos tipos de busqueda con distintos tipos de tamaños, por tamaño nos referimos a cantidad de fotos sobre las que harán la búsqueda los algoritmos.
+
+KNN_sequential | KNN_rtree | Tamaño |
+--- | --- | --- |
+0.35722804069519043|  0.21970176696777344 | 100
+0.3506777286529541| 0.21974420547485352| 200
+0.3776669502258301 | 0.21924376487731934| 400
+0.3974766731262207 | 0.23142075538635254| 800
+0.44744157791137695| 0.2402486801147461| 1600
+0.5368270874023438| 0.27453184127807617| 3200
+0.7456254959106445 | 0.3316769599914551| 6400
+1.1445732116699219 | 0.4600968360900879| 12800
