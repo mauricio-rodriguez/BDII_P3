@@ -7,6 +7,7 @@ import numpy as np
 from rtree import index
 import pickle
 from heapq import *
+from generate_tree import global_properties
 
 def preprocess_input(input):
     picture = face_recognition.load_image_file(input)
@@ -34,7 +35,8 @@ def knn_rtree(size, input, k = 8):
     idx = index.Index(path, properties = prop)
     image = preprocess_input(input)
     point = tuple(np.concatenate([image, image]))
-    result = list(idx.nearest(coordinates=point, num_results=k, objects = str(size)))
+    result = list(idx.nearest(coordinates=point, num_results=k))
+    print(result)
     return result
     
             
@@ -61,5 +63,6 @@ def knn_sequential(size,input, k = 8):
     result = [0] * k
     for i in range(k):
         result[i] = heappop(h)[1]
-
-    return result.reverse()
+    result = list(reversed(result))
+    
+    return result
