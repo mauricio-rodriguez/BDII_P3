@@ -1,0 +1,11 @@
+<head>
+
+</head>
+
+<body>
+    {% for i in results %}
+        {% set path = i.split('/')[-2] %}
+        {% set filename = i.split('/')[-1] %}
+        <img src="{{url_for('sendimage',filename=filename, directory=path)}}">
+    {% endfor %}
+</body> 

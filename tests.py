@@ -35,6 +35,6 @@ def test():
     plt.xlabel("Number of images")
     plt.ylabel("Seconds")
     plt.legend()
-    plt.savefig('img')
+    plt.savefig('test')
 
 test()
