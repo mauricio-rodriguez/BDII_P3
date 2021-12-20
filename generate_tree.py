@@ -4,8 +4,7 @@ from rtree import index
 import csv
 from consts import sizes
 
-global_properties = None
-global_index = None
+indices = []
 
 def generate_tree(size):
     path = "./index/rtree_"+str(size)
@@ -18,9 +17,6 @@ def generate_tree(size):
     prop = index.Property()
     prop.dimension = x.shape[1]
     prop.buffering_capacity = 5
-    prop.dat_extension = "data"
-    prop.idx_extension = "index"
-    global_properties = prop
     
     idx = index.Index(path, properties = prop)
     
@@ -30,9 +26,9 @@ def generate_tree(size):
         image_dir = y.iloc[i].values[0]
         idx.insert(i, point, obj = image_dir)
         
-    global_index = idx
         
 def generate_trees():
+    global indices
     for size in sizes:
         generate_tree(size)
     print("terminado")
@@ -40,4 +36,4 @@ def generate_trees():
     
 # generate_trees()
 
-# generate_tree(13170)
+generate_tree(13170)
