@@ -4,7 +4,7 @@ from sklearn.preprocessing import StandardScaler
 import numpy as np
 from rtree import index
 import csv
-
+from consts import sizes
 def preprocess_data():
     df = pd.read_csv("./csv/data.csv")
     columns = [str(i) for i in range(1, 129)]
@@ -30,24 +30,29 @@ def preprocess_data():
             writer.writerow(row)
 
 def generate_tree(size):
-    path = "./index/rtree_"
+    path = "./index/rtree_"+str(size)
     df = pd.read_csv("./csv/preprocessed.csv")
     df = df.head(size)
     columns = [str(i) for i in range(1, df.shape[1])]
     x = df.loc[:, columns]
     y = df.loc[:, ["dir"]]
     prop = index.Property()
-    prop.dimension = df.shape[1]
+    prop.dimension = df.shape[1] - 1
     prop.buffering_capacity = 100
-    prop.dat_extension = "data_"+str(size)
-    prop.idx_extension = "index_"+str(size)
+    prop.dat_extension = "data"
+    prop.idx_extension = "index"
     
     idx = index.Index(path, properties = prop)
     
     for i in range(size):
         temp = x.iloc[i].values
         point = tuple(np.concatenate([temp, temp]))
-        print(point)
         idx.insert(i, point, obj = y.iloc[i].values[0])
         
-generate_tree(2)
+def generate_trees():
+    for size in sizes:
+        generate_tree(size)
+    print("terminado")
+    
+    
+generate_trees()
