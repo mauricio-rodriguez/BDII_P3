@@ -37,8 +37,8 @@ def generate_tree(size):
     x = df.loc[:, columns]
     y = df.loc[:, ["dir"]]
     prop = index.Property()
-    prop.dimension = df.shape[1] - 1
-    prop.buffering_capacity = 100
+    prop.dimension = x.shape[1]
+    prop.buffering_capacity = 5
     prop.dat_extension = "data"
     prop.idx_extension = "index"
     
@@ -47,7 +47,8 @@ def generate_tree(size):
     for i in range(size):
         temp = x.iloc[i].values
         point = tuple(np.concatenate([temp, temp]))
-        idx.insert(i, point, obj = y.iloc[i].values[0])
+        image_dir = y.iloc[i].values[0]
+        idx.insert(i, point, obj = image_dir)
         
 def generate_trees():
     for size in sizes:
